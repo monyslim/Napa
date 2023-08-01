@@ -5,6 +5,7 @@ Simple NodeJS Express Program get files as input from user and upload it to the 
 To install necessary packages and start the server: 
     
     npm install && npm start
+    On you terminal type cp .env-example .env to create an .env file for you
 
 
 
@@ -38,7 +39,6 @@ Remember that you need to also run the built image for the application:
     > --name napa-app \
     > napa
 ```
-I have deliberately left the .env file in the project folder. Use as it is.
 
 
 
