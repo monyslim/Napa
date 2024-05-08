@@ -5,7 +5,6 @@ Simple NodeJS Express Program get files as input from user and upload it to the 
 To install necessary packages and start the server: 
     
     npm install && npm start
-    On you terminal type cp .env-example .env to create an .env file for you
 
 
 
@@ -17,12 +16,12 @@ To install necessary packages and start the server:
 
 - 2. The command for **running mongodb**
 ``` sh
-    docker run -d --network napa-network \
+    docker run -d -p 27017:27017 --network napa-network \
     -e MONGO_INITDB_ROOT_USERNAME=admin \
     -e MONGO_INITDB_ROOT_PASSWORD=password \
-    -e MONGO_INITDB_DATABASE=napa
+    -e MONGO_INITDB_DATABASE=napa \
     --name mongodb \
-    mongo:5.0
+    mongo
 ```
 - 3. The command for **running mongo-express**
 ```sh
@@ -39,8 +38,6 @@ Remember that you need to also run the built image for the application:
 ```sh
     docker run -d -p 3000:3000 --network napa-network \
     --name napa-app \
-    <name of image>
+    napa
 ```
-
-
-
+I have deliberately left the .env file in the project folder. Use as it is.
