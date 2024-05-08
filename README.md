@@ -30,7 +30,7 @@ To install necessary packages and start the server:
     -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin \
     -e ME_CONFIG_MONGODB_ADMINPASSWORD=password \
     -e ME_CONFIG_MONGODB_SERVER=mongodb \
-    -e ME_CONFIG_MONGODB_URL:mongodb://admin:password@mongo:27017 mongo-express
+    -e ME_CONFIG_MONGODB_URL:mongodb://admin:password@mongo:27017
     --name mongo-expresso \
     mongo-express
 ```
