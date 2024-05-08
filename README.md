@@ -16,27 +16,29 @@ To install necessary packages and start the server:
 
 - 2. The command for **running mongodb**
 ``` sh
-    docker run -d -p 27018:27017 --network napa-network \
-    > -e MONGO_INITDB_ROOT_USERNAME=admin \
-    > -e MONGO_INITDB_ROOT_PASSWORD=admin \
-    > --name mongodb \
-    > mongo
+    docker run -d -p 27017:27017 --network napa-network \
+    -e MONGO_INITDB_ROOT_USERNAME=admin \
+    -e MONGO_INITDB_ROOT_PASSWORD=password \
+    -e MONGO_INITDB_DATABASE=napa \
+    --name mongodb \
+    mongo
 ```
 - 3. The command for **running mongo-express**
 ```sh
     docker run -d -p 8081:8081 --network napa-network \
-    > -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin \
-    > -e ME_CONFIG_MONGODB_ADMINPASSWORD=admin \
-    > -e ME_CONFIG_MONGODB_SERVER=mongodb \
-    > --name mongo-expresso \
-    > mongo-express
+    -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin \
+    -e ME_CONFIG_MONGODB_ADMINPASSWORD=password \
+    -e ME_CONFIG_MONGODB_SERVER=mongodb \
+    -e ME_CONFIG_MONGODB_URL:mongodb://admin:password@mongo:27017
+    --name mongo-expresso \
+    mongo-express
 ```
 
 Remember that you need to also run the built image for the application: 
 ```sh
     docker run -d -p 3000:3000 --network napa-network \
-    > --name napa-app \
-    > napa
+    --name napa-app \
+    napa
 ```
 I have deliberately left the .env file in the project folder. Use as it is.
 
