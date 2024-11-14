@@ -1,0 +1,5 @@
+services:
+  image: monyslim/booksfinder:3.1
+  restart: always
+  ports:
+    - 80:80
